@@ -162,6 +162,10 @@ class PowerShell(CMD):
             script = '&& '.join(lines)
         return script
 
+    @staticmethod
+    def _escape_quotes(s):
+        return s.replace('"', '`"').replace("'", "`'")
+
     def escape_string(self, value):
         """Escape the <, >, ^, and & special characters reserved by Windows.
 
@@ -172,9 +176,17 @@ class PowerShell(CMD):
             str: The value escaped for Windows.
 
         """
-        if isinstance(value, EscapedString):
-            return value.formatted(self._escaper)
-        return self._escaper(value)
+        value = EscapedString.promote(value)
+        value = value.expanduser()
+        result = ''
+
+        for is_literal, txt in value.strings:
+            if is_literal:
+                txt = self._escape_quotes(self._escape_vars(txt))
+            else:
+                txt = self._escape_quotes(txt)
+            result += txt
+        return result
 
     def setenv(self, key, value):
         value = self.escape_string(value)

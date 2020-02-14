@@ -1,5 +1,13 @@
 # Change Log
 
+
+## 2.40.4 (2020-02-13)
+
+**Notes**
+
+This update brings fixes the character "&" being escaped on PowerShell's shell plugin. ([\#93](https://github.com/mottosso/bleeding-rez/issues/93) )
+
+
 ## 2.40.3 (2019-08-15)
 [Source](https://github.com/nerdvegas/rez/tree/2.40.3) | [Diff](https://github.com/nerdvegas/rez/compare/2.40.2...2.40.3)
 

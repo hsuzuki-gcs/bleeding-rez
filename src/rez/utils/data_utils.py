@@ -4,7 +4,7 @@ Utilities related to managing data types.
 """
 from rez.vendor.schema.schema import Schema, Optional
 from rez.exceptions import RexError
-from collections import MutableMapping
+from collections.abc import MutableMapping
 from threading import Lock
 
 

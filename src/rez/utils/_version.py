@@ -1,7 +1,8 @@
 
 
 # Update this value to version up Rez. Do not place anything else in this file.
-_rez_version = "2.40.5"
+# 
+_rez_version = "2.40.5_0.1.0"
 
 
 # Copyright 2013-2016 Allan Johns.
